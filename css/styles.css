@@ -1,0 +1,72 @@
+html{
+    background-color: #F1F2F3!important;
+    font-family: Tw Cen MT;
+}
+
+nav{
+    background-color: #F1F2F3!important;
+    padding-left: 72px;
+    padding-right: 72px;
+}
+
+
+li a{
+    font-size: 32px;
+    margin-left: 32px;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: #196AA6;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: #F79420;
+}
+
+.navbar-dark .navbar-toggler-icon{
+    color: #196AA6;
+}
+
+.btn-outline-success{
+    color: #F79420;
+    border-color: #F79420;
+    font-size: 32px;
+    margin-left: 100px;
+
+}
+
+.btn-outline-success:hover {
+    color: #196AA6;
+    background-color: #F79420;
+    border-color: #F79420;
+    box-shadow: none;
+}
+
+.form-control{
+    color: #196AA6;
+}
+
+.popup-bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+}
+
+.popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    background: #F1F2F3;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+
+}
+
+.close-popup{
+    margin-left: 20px;
+}
