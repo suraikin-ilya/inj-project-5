@@ -1,5 +1,11 @@
 <?php
-require "includes/header.php"
+require "includes/header.php";
+
+if($_GET['action'] == 'logout') {
+
+    setcookie('role', $role['RoleID'], time() - 3600, "/");
+    header('Location: ./index.php');
+}
 ?>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -20,27 +26,40 @@ require "includes/header.php"
                         <a class="nav-link" href="#">Ссылка</a>
                     </li>
                 </ul>
-                <button class="btn btn-outline-success open-popup" type="submit" >LOGIN</button>
+                <?php
+                if($_COOKIE['role']== ''):
+                    echo '<button class="btn btn-outline-success open-popup" type="submit" >LOGIN</button>
                 <div class="popup-bg">
                     <div class="popup">
-                    <form>
+                    <form action="includes/auth.php" method="post">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" id="password" name="password">
                         </div>
 
                         <button style="color: #FFFACB; background-color: #196AA6" type="submit" class="btn btn-primary">Submit</button>
-                        <button style="color: #FFFACB; background-color: #F79420" type="submit" class="btn btn close-popup">Close</button>
+                        <a style="color: #FFFACB; background-color: #F79420" type="" class="btn btn close-popup">Close</a>
                     </form>
                     </div>
-                </div>
+                </div>';
+                    ?>
+                <?php else: ?>
+                <a href="?action=logout" class="btn btn-outline-success " type="submit" >EXIT</a>
+                <?php endif; ?>
             </div>
+            <?php
+            if ($_COOKIE['role']== '7b7bc2512ee1fedcd76bdc68926d4f7b'):
+                echo "admin";
+                ?>
+            <?php else: ?>
+            <?php endif; ?>
         </div>
     </nav>
 </header>
 </body>
 </html>
+
