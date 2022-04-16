@@ -10,6 +10,7 @@ $user = mysqli_fetch_assoc($check_user);
 if (mysqli_num_rows($check_user)>0){
     $role = mysqli_fetch_assoc(mysqli_query($db_connect,"SELECT RoleID  FROM `userdata` WHERE Email = '$email'"));
     setcookie('role', md5($role['RoleID']), time() + 3600, "/");
+    sleep(2);
     header('Location: .././index.php');
 }
 else{

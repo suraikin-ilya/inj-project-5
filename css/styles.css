@@ -3,6 +3,16 @@ html{
     font-family: Tw Cen MT;
 }
 
+body{
+    background-color: #F1F2F3;
+}
+
+main{
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 150px;
+}
+
 nav{
     background-color: #F1F2F3!important;
     padding-left: 72px;
@@ -64,5 +74,4 @@ li a{
     background: #F1F2F3;
     transform: translate(-50%, -50%);
     padding: 20px;
-
 }
