@@ -103,9 +103,12 @@ if($_GET['action'] == 'logout') {
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password">
-                        </div>
-
-                        <button style="color: #FFFACB; background-color: #196AA6" type="submit" class="btn btn-primary">Submit</button>
+                        </div>';
+                           if(isset($_COOKIE['wrong_password'])){
+                               echo '<div> Wrong password</div>';
+                               echo '<div id="countdown"></div>';
+                           }
+                        echo '<button style="color: #FFFACB; background-color: #196AA6" type="submit" class="btn btn-primary">Submit</button>
                         <a style="color: #FFFACB; background-color: #F79420" type="" class="btn btn close-popup">Close</a>
                     </form>
                     </div>
