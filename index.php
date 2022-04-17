@@ -15,7 +15,7 @@ if (isset($_GET['change_role'])) {
 }
 ?>
 <body class="">
-    <main class="ml-sm-auto ">
+    <main class="container">
         <?php
         if ($_COOKIE['role']== '7b7bc2512ee1fedcd76bdc68926d4f7b'):
             $users = mysqli_query($db_connect,"SELECT * FROM `userdata` ORDER BY `ID` ASC");
@@ -53,6 +53,13 @@ if (isset($_GET['change_role'])) {
             }
             echo '</tbody>
         </table>' ;?>
+        <?php endif; ?>
+        <?php
+        if ($_COOKIE['role']== '8f9bfe9d1345237cb3b2b205864da075'):
+                echo '<h2 class="h3"> Hi '. ($_COOKIE['username']) . ', Welcome to AMONIC Airlines.' . '</h2>';
+                echo '<h3 class="h5">Time spent on system:'. '' .'</h3>';
+                echo '<h3 class="h5">Number of crashes:'. '' .'</h3>';
+            ?>
         <?php endif; ?>
     </main>
 </body>

@@ -4,6 +4,15 @@ require "includes/db_connection.php";
 if($_GET['action'] == 'logout') {
 
     setcookie('role', $role['RoleID'], time() - 3600, "/");
+    if(isset($_COOKIE['username'])){
+        setcookie('username', $user['FirstName'], time() - 3600, "/");
+        $last_session = mysqli_fetch_array(mysqli_query($db_connect,"SELECT * FROM `session` ORDER BY id DESC LIMIT 1"));
+        $last_session_id = $last_session['id'];
+        $logout_time = date('H:i:s');
+        $last_login_time = $last_session['login_time'];
+        $reason = NULL;
+       $session_query = mysqli_query($db_connect, "UPDATE `session` SET logout_time = '$logout_time', on_system = TIMEDIFF('$logout_time', '$last_login_time'), reason = '$reason' WHERE id = '$last_session_id'");
+    }
     header('Location: ./index.php');
 }
 ?>
