@@ -20,7 +20,6 @@ if (isset($_GET['change_role'])) {
         if ($_COOKIE['role']== '7b7bc2512ee1fedcd76bdc68926d4f7b'):
             $users = mysqli_query($db_connect,"SELECT * FROM `userdata` ORDER BY `ID` ASC");
             echo '      
-            
             <table class="table  table-sm ">
             <thead>
             <tr>
@@ -38,7 +37,7 @@ if (isset($_GET['change_role'])) {
             while ($row = mysqli_fetch_array($users)) {
 
                 echo '<tr "';
-                if($row['Active'] == 1){echo ' style="background-color: green"';} else echo ' style="background-color: red"';
+                if($row['Active'] == 0){echo ' style="background-color: red"';}
                 echo '>';
                     echo '<td>' . $row['FirstName'] . '</td>';
                     echo '<td>' . $row['LastName'] . '</td>';

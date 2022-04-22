@@ -35,7 +35,7 @@ if($_GET['action'] == 'logout') {
     <nav class="navbar navbar-expand-md navbar-dark fixed-top ">
 
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img class="img-fluid" src="./img/DS2017_TP09_mono.png" alt=""></a>
+            <a class="navbar-brand" href="index.php"><img class="img-fluid" src="./img/DS2017_TP09_mono.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,6 +44,7 @@ if($_GET['action'] == 'logout') {
                 if ($_COOKIE['role']== '7b7bc2512ee1fedcd76bdc68926d4f7b'):
                     $office = mysqli_query($db_connect,"SELECT Title  FROM `offices`");
                     echo '<button class="btn btn-outline-success open-popup" type="submit" >Add user</button>
+                            <a class="btn btn-outline-success open-popup" href="schedules.php" >Schedules</a>
                 <div class="popup-bg">
                     <div class="popup">
                     <form action="includes/add_user.php" method="post">
@@ -61,7 +62,7 @@ if($_GET['action'] == 'logout') {
                         </div>
                         <div class="mb-3">
                             <label for="Office" class="form-label">Office</label>
-                            <select class="form-select" aria-label="Default select example" id="office" name="office" required>                         
+                            <select class="form-select " aria-label="Default select example" id="office" name="office" required>                         
                                                    
                               <option selected>Office name</option>';
                     while($row = mysqli_fetch_array($office)) {

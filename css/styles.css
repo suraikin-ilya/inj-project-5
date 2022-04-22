@@ -75,3 +75,50 @@ li a{
     transform: translate(-50%, -50%);
     padding: 20px;
 }
+
+.border{
+    border: 2px solid #196AA6;
+    padding: 10px;
+    font-family: Tw Cen MT;
+}
+
+.schedule_select{
+    color: #196AA6;
+    font-size: 20px;
+    line-height: inherit;
+    width: min-content;
+    padding-left: -50px;
+    border-radius: 5px;
+}
+
+.schedule_input{
+    color: #196AA6;
+    font-size: 20px;
+}
+
+.schedule_label{
+    font-size: 20px;
+    width: fit-content;
+}
+
+option{
+    padding-left: 10px;
+}
+
+.inline-block{
+    display: inline-block;
+}
+
+.ml20{
+    margin-left: 20%;
+}
+
+input:invalid {
+    border: red solid 3px;
+}
+
+.btn_apply{
+    color: #F79420;
+    margin-left: 100px;
+    border: 1px solid #F79420;
+}
