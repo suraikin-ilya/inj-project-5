@@ -15,3 +15,10 @@ $(document).on('click','.close-popup',function (){
 }
     timeleft -= 1;
 }, 1000);
+
+// $(document).on('click', '.open-popup-2', function (){
+//     $('.popup-2-bg').fadeIn(600);
+// });
+// $(document).on('click','.close-popup-2',function (){
+//     $('.popup-2-bg').fadeOut(600);
+// });
