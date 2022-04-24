@@ -143,3 +143,18 @@ input:invalid {
     margin-left: 100px;
     border: 1px solid #F79420;
 }
+
+.bold{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn-submit{
+    border: 1px solid #196AA6;
+    background-color: #F79420;
+
+}
+
+.btn-submit:hover{
+    background-color: #196AA6;
+}

@@ -1,6 +1,14 @@
 <?php
 require "includes/header.php";
 
+if(isset($_POST['Price']) || isset($_POST['Date']) || isset($_POST['Time'])){
+    $post_id = $_POST['schedule_id'];
+    $new_price = $_POST['Price'];
+    $new_date = $_POST['Date'];
+    $new_time = $_POST['Time'];
+    $update_schedule = mysqli_query($db_connect2, "UPDATE `schedules` SET Date = '$new_date', Time = '$new_time', EconomyPrice = '$new_price' WHERE ID = '$post_id'");
+}
+
 if (isset($_GET['cancel'])) {
     $scheduleid = $_GET['cancel'];
     $scheduleinfo = mysqli_fetch_array(mysqli_query($db_connect2,"SELECT * FROM `schedules` WHERE ID = '$scheduleid'"));
@@ -146,7 +154,7 @@ if(isset($_GET['flight_number'])){
                 echo '<td>$' . $row['EconomyPrice']*1.3 . '</td>';
                 echo '<td> <a href="' . $_SERVER['REQUEST_URI'] . '&cancel='. $row['ID'] .'">';
                 if($row['Confirmed'] == 1){echo '<img src="img/switch-off.png"></a></td>';}else{echo '<img src="img/switch-on.png"></a></td>';}
-                echo '<td> <button class="open-popup-'. $i .' btn">edit</button>';
+                echo '<td> <button class="btn-submit open-popup-'. $i .' btn">edit</button>';
                                 echo '<div class="popup-'. $i .'-bg" style="   position: fixed;
                                                                                         width: 100%;
                                                                                         height: 100%;
@@ -161,6 +169,13 @@ if(isset($_GET['flight_number'])){
                                                                 background: #F1F2F3;
                                                                 transform: translate(-50%, -50%);
                                                                 padding: 20px;">
+                     <div>
+                        <div class="mb-3">
+                        <div class="inline-block"> From: <span class="bold"> '. $schedule_from['IATACode'] .'</span></div>
+                        <div class="inline-block ml20"> To: <span class="bold"> '. $schedule_to['IATACode'] .'</span></div>
+                        <div class="inline-block ml20"> Aircraft: <span class="bold">Boeing 738</span></div>
+                        </div>
+                        <form action="#" method="post">
                         <div class="mb-3 inline-block">
                             <label for="Date" class="form-label">Date</label>
                             <input type="text" class="form-control-lg schedule_input" id="Date" name="Date" value="'. $row['Date'].'">
@@ -173,9 +188,14 @@ if(isset($_GET['flight_number'])){
                             <label for="Price" class="form-label">Economy price</label>
                             <input type="text" class="form-control-lg schedule_input" id="Price" name="Price" value="'. $row['EconomyPrice'].'">
                         </div>
+                        <div style="display: none">
+                            <input type="text" class="form-control-lg schedule_input" id="schedule_id" name="schedule_id" value="'. $row['ID'] . '">
+                        </div>
                         <br>
-                        <button style="color: #FFFACB; background-color: #196AA6" type="submit" class="btn btn-primary">Save</button>
-                        <a style="color: #FFFACB; background-color: #F79420" type="" class="btn btn close-popup-'. $i .'">Cancel</a>
+                        <button style="color: #FFFACB; background-color: #196AA6" type="submit" class="btn btn-primary">Update</button>
+                        <a style="color: #FFFACB; background-color: #F79420" type="" class="btn close-popup-'. $i .'">Cancel</a>
+                        </div>
+                        </form>
                     </div>
                     </div>';
                     echo "<script>";
